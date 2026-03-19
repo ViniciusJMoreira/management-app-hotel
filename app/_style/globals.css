@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --color-indigo: oklch(51.1% 0.262 276.966);
+  --color-gray: oklch(92.8% 0.006 264.531);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-indigo: oklch(45.7% 0.24 277.023);
+    --color-gray: oklch(27.8% 0.033 256.848);
+  }
+}
+
+body {
+  font-family: var(--font-poppins), Helvetica, sans-serif;
+}
+
+/* Nasconde la scrollbar mantenendo lo scroll */
+.no-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge legacy */
+  scrollbar-width: none; /* Firefox */
+}
+
+@layer components {
+  .spinner {
+    margin: 3.2rem auto 1.6rem;
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 9px solid var(--color-gray);
+    border-right-color: var(--color-indigo);
+    animation: rotate 1s infinite linear;
+  }
+
+  .spinner-mini {
+    margin: 0;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    animation: rotate 1s infinite linear;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
