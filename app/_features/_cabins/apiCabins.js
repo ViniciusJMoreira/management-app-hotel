@@ -1,4 +1,5 @@
 "use server";
+import { notFound } from "next/navigation";
 import { supabase } from "@/app/_lib/supabase";
 
 export async function getCabins() {
